@@ -51,7 +51,7 @@ var orm = {
     });
   },
 
-// INSERT INTO `burgers` (`id`, `burger`, `eaten`) VALUES ('3', 'What', '0');
+//INSERT INTO burgers (burger, eaten) VALUES ('Nasty Boy', false);
 
   create: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
@@ -63,7 +63,7 @@ var orm = {
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
 
-    console.log(queryString);
+    console.log("query string: "+queryString);
 
     connection.query(queryString, vals, function(err, result) {
       if (err) {

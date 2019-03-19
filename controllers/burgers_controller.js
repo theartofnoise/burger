@@ -16,15 +16,17 @@ router.get("/", function(req, res) {
   });
 });
 
-//   INSERT INTO `burgers` (`id`, `burger`, `eaten`) VALUES ('3', 'What', '0');
+// INSERT INTO burgers (burger, eaten) VALUES ('Nasty Boy', false);
 router.post("/api/burgers", function(req, res) {
-    console.log(`req: ${req}`);
-    burger.create({
-        burger: req.body.burger
-      }).then(function(data) {
-          console.log(data);
-        // We have access to the new todo as an argument inside of the callback function
-        res.json(data);
+    console.log(`req: ${JSON.stringify(req.body)}`);
+    burger.create([
+        "burger"
+      ], [
+        req.body.burger
+      ], function(result) {
+        // Send back the ID of the new quote
+        console.log(result);
+        res.redirect('/');
       });
 });
 
@@ -34,7 +36,7 @@ router.put("/api/burgers/:id", function(req, res) {
   console.log("condition", condition);
 
   burger.update({
-    sleepy: req.body.sleepy
+    eaten: req.body.eaten
   }, condition, function(result) {
     if (result.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
