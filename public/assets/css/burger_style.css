@@ -1,1 +1,18 @@
-.container { background-color: rgb(255, 226, 94)};
+.bgColor, body, textarea { background-color: rgb(255, 226, 94)}
+textarea { background-color: rgb(255, 233, 135)}
+footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    border-radius: 0rem;
+    color: rgb(230, 230, 230);
+  }
+  .darkText {color: black;}
+  
+  .card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    border-top: 1px;
+    background-color:  rgb(255, 226, 94);
+  }
